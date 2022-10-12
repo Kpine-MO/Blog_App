@@ -6,9 +6,12 @@ class CommentsController < ApplicationController
     end
 
     def create
-        comment = Comment.create(comment_params)
-        render json: comment
+        user_id = session[:user_id]
+        user = User.find(user_id)
+        comment = user.comments.create(comment_params)
+        render json: comment, status: :created
     end
+    
 
     def destroy
         find_comment.destroy
@@ -22,7 +25,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.permit(:description, :blog_id, :user_id)
+        params.permit(:description )
     end
 
     def find_comment
