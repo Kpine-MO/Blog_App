@@ -56,6 +56,9 @@ function Home() {
 									key={blog.id}
 									blog={blog}
 									onDeletePost={handleDeletePost}
+						            content={blog.content}
+									pBlogs={pBlogs}
+									setPBlogs={setPBlogs}
 								/>
 							);
 						})}

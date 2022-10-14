@@ -47,7 +47,7 @@ function LoginForm() {
 				/>
 <br/>
 				<button type="submit">Sign Up</button>
-				<div>
+				<div className="error">
 					{errors.map((err) => {
 						return <div key={err}>{err}</div>;
 					})}

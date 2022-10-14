@@ -26,6 +26,10 @@
     height: 60px;
 }
 
+.li_transparent{
+    color: transparent;
+}
+
 .btn{
     margin-top: 15px;
     

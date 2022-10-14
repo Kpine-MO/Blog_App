@@ -1,12 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import "../Css/Navbar.css";
 
 function Nav({ user, setUser }) {
+	const navigate = useNavigate();
+
 	function handleLogoutClick() {
 		fetch("/logout", { method: "DELETE" }).then((r) => {
 			if (r.ok) {
 				setUser(null);
+			}
+
+			if (r.ok){
+				navigate("/")
 			}
 		});
 	}
@@ -18,7 +24,7 @@ function Nav({ user, setUser }) {
 						Home
 					</NavLink>
 					<NavLink
-						className="li"
+						className="li li_transparatent"
 						style={{ textDecoration: "none" }}
 						to="/account"
 					>
