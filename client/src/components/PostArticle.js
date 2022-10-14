@@ -19,7 +19,7 @@ function PostArticle() {
 			category: category,
 			image_url: imageUrl
 		};
-		
+
 		try{
 			let result = await fetch("/posts", {
 				method: "POST",
@@ -111,7 +111,7 @@ function PostArticle() {
 				<button className="btn_post black" type="submit">
 					Post
 				</button>
-				<Link to="/">
+				<Link to="/account">
 					<button className="btn_post grey" type="submit">
 						Back
 					</button>

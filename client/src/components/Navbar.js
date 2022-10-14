@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi"
 import "../Css/Navbar.css";
 
 function Nav({ user, setUser }) {
@@ -28,7 +29,7 @@ function Nav({ user, setUser }) {
 						style={{ textDecoration: "none" }}
 						to="/account"
 					>
-						Account
+				
 					</NavLink>
 					<NavLink className="li" style={{ textDecoration: "none" }} to="/">
 						About
@@ -41,8 +42,8 @@ function Nav({ user, setUser }) {
 					<NavLink className="black btn_nav " to="/login">
 						Login
 					</NavLink>
-					<NavLink variant="outline" onClick={handleLogoutClick}>
-						Logout
+					<NavLink className="outline" onClick={handleLogoutClick}>
+						<FiLogOut size="1.2em"/>
 					</NavLink>
 				</div>
 			</div>
