@@ -10,39 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_12_091740) do
+ActiveRecord::Schema.define(version: 2022_10_13_173807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "blogers", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "about"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.string "category"
     t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string "description"
-    t.bigint "user_id", null: false
-    t.bigint "blog_id", null: false
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "author"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["blog_id"], name: "index_comments_on_blog_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.bigint "bloger_id"
+    t.string "image_url"
+    t.index ["bloger_id"], name: "index_posts_on_bloger_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "bio"
-    t.string "username"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "comments", "blogs"
-  add_foreign_key "comments", "users"
+  add_foreign_key "posts", "blogers"
 end

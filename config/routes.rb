@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   
-  resources :blogs, only: [:index, :create, :update, :destroy]
+  resources :posts, only: [:index, :create, :update, :destroy]
 
-  resources :users, only: [:index, :show, :create]
+  resources :blogers, only: [:create]
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
-  resources :comments, only: [ :index, :update, :create, :destroy]
+  post "/signup", to: "blogers#create"
+  get "/me", to: "blogers#show"
+
+  get "/posts/new", to: "posts#new"
 
 end

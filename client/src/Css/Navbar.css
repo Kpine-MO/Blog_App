@@ -1,0 +1,50 @@
+.inner_nav{
+    display: flex;
+    width: 100%;
+    border-bottom: 2px solid lightgray;
+    background-color: rgb(231, 231, 231);
+    height: 50px;
+    justify-content: space-between;
+    position: fixed;
+    margin-top: 0px;
+    z-index: 10;
+}
+
+.li{
+    color: rgb(54, 53, 53);
+    font-family: glory;
+    font-size: large;
+    font-weight: 600;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.btn_nav{
+    margin-right: 30px;
+    text-decoration: none;
+    width: 1200px;
+    height: 60px;
+}
+
+.btn{
+    margin-top: 15px;
+    
+}
+
+.black{
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    height: 60px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.grey{
+    background-color: grey;
+    color: white;
+    border-radius: 12px;
+    height: 60px;
+    padding: 10px;
+}
