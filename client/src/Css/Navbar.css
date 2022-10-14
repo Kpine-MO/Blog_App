@@ -10,6 +10,12 @@
     z-index: 10;
 }
 
+.outline{
+    margin-right: 20px;
+    color: black;
+    margin-top: 10px;
+}
+
 .li{
     color: rgb(54, 53, 53);
     font-family: glory;
