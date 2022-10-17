@@ -1,10 +1,20 @@
 import React from 'react'
 import '../Css/UserAccount.css'
-import Profile from './Profile'
 import { FaCameraRetro } from 'react-icons/fa'
 import { BsPlusLg } from 'react-icons/bs'
+import { json } from 'react-router-dom'
 
-function UserAccount() {
+function UserAccount({user, userPosts}) {
+
+  const { username, about } = user
+
+  const user_posts = userPosts.map((item) => {
+    return <div key={item.id}>
+      <h3>{item.title}</h3>
+      <img src={item.image_url}/>
+    </div>
+  })
+  
   const cameraStyles = {
     borderRadius: "50%",
     backgroundColor: "black",
@@ -20,14 +30,23 @@ function UserAccount() {
     position: "absolute",
     right: "200px"
   }
+  
+
   return (
     <div>
+
         <div className='Account_hero'>
           <FaCameraRetro style={cameraStyles} size="2em"/>
           <button className='Post_btn'><BsPlusLg size="0.9em" style={plusStyles}/>Add Blog</button>
         </div>
-
-        <Profile/>
+          {about}
+          <br/>
+          <div>
+          {username}        
+          </div>
+          <div style={{color: "red"}}>
+        {user_posts}
+          </div>
     </div>
   )
 }

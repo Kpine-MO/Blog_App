@@ -3,17 +3,15 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi"
 import "../Css/Navbar.css";
 
-function Nav({ user, setUser }) {
+function Nav({ setUser }) {
 	const navigate = useNavigate();
 
 	function handleLogoutClick() {
 		fetch("/logout", { method: "DELETE" }).then((r) => {
 			if (r.ok) {
-				setUser(null);
-			}
-
-			if (r.ok){
+				setUser({});
 				navigate("/")
+
 			}
 		});
 	}

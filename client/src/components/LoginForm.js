@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../Css/LoginForm.css'
 
-function LoginForm() {
+function LoginForm({setUser}) {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
@@ -19,7 +19,8 @@ function LoginForm() {
 			body: JSON.stringify({ username, password }),
 		}).then((r) => {
 			if (r.ok) {
-				navigate("/account");
+				navigate("/user")
+				r.json().then((user) => setUser(user));
 			} else {
 				r.json().then((err) => setErrors(err.errors));
 			}

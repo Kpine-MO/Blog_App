@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       render json: {errors: ["Username or Password Incorrect"]}, status: :unauthorized
     end
   end
-
+       
   def destroy
     if session[:bloger_id] 
       session.destroy

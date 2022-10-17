@@ -9,6 +9,11 @@ class BlogersController < ApplicationController
         render json: bloger, status: :created
     end
 
+    def index
+        bloger = Bloger.all
+        render json: bloger
+    end
+
     def show
         bloger = Bloger.find(session[:bloger_id])
         render json: bloger, status: :created
